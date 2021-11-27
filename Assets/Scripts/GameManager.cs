@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject ship;
+    private float score;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,4 +40,5 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
 }
