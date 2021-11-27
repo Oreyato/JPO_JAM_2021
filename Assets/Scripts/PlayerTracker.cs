@@ -22,7 +22,6 @@ public class PlayerTracker : MonoBehaviour
         _rigidbody = trackedCar.gameObject.GetComponent<Rigidbody>();
     }
 
-
     void LateUpdate()
     {
         ahead.transform.position = trackedCar.position + trackedCar.forward * (maxDistance * 0.25f);
