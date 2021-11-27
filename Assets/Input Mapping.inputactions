@@ -1,0 +1,33 @@
+{
+    "name": "Input Mapping",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "df4cd884-7588-42b4-81b2-00b6f9d917db",
+            "actions": [
+                {
+                    "name": "Action",
+                    "type": "Button",
+                    "id": "77aec294-1967-490a-a548-648d0fc0cf9a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c08e0d6b-db4b-4462-a488-445cd2be600f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
