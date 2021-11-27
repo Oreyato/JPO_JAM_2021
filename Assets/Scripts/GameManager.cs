@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,10 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     public GameObject ship;
-    private float score;
+    public float score;
+    private float timer;
+
+    private bool gameStarted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +42,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameStarted)
+        {
+            timer += Time.deltaTime;
+            Score();
+        }
+        else timer = 0;
+        
         
     }
 
+    void Score()
+    {
+        score = (float)Math.Round(timer, 3);
+
+        Debug.Log(score);
+    }
 }
