@@ -61,11 +61,11 @@ public class GameManager : MonoBehaviour
 
     void Score()
     {
-        decimals = (float)Math.Round((Time.time - start)%1, 2);
+        decimals = (float)(Time.time - start)%1;
         minutes = (int)decimals / 60;
 
         //scoreText = minutes.ToString() + ":" + decimals;
         int timeElapsed = (int)(Time.time - start);
-        scoreText = string.Format("{0}'{1:00}\"{2:00}", timeElapsed / 60 , timeElapsed % 60 ,(decimals)*100);
+        scoreText = string.Format("{0}'{1:00}\"{2:00}", timeElapsed / 60 , timeElapsed % 60 , Math.Round((decimals)*100,2));
     }
 }
