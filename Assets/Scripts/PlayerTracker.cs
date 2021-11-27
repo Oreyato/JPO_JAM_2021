@@ -22,6 +22,7 @@ public class PlayerTracker : MonoBehaviour
         Vector3 toPosition = trackedCar.position + (trackedCar.rotation * defaultDistance);
         Vector3 currentPosition = Vector3.SmoothDamp(transform.position, toPosition, ref velocity, distance);
 
+        transform.position = currentPosition;
         transform.LookAt(trackedCar);
     }
 }
