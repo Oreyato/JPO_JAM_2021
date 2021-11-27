@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gamepad.buttonSouth.isPressed)
+        if (gamepad!= null && gamepad.buttonSouth.isPressed)
         {
             OnActionInput();
         }
@@ -38,5 +38,6 @@ public class PlayerController : MonoBehaviour
     public void OnActionInput()
     {
         //Define behaviour an action input
+        Debug.Log("Player " + playerID + " has done action " + (direction == DIRECTION.LEFT ? "left" : "right"));
     }
 }
