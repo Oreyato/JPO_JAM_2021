@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public DIRECTION direction = DIRECTION.LEFT;
+    public float goForward = 1;
 
 
     // Start is called before the first frame update
@@ -55,11 +56,20 @@ public class PlayerController : MonoBehaviour
            m_RigidBody.AddForce(-brakevelocity);
         }
 
-        if (gamepad!= null && gamepad.buttonSouth.wasPressedThisFrame)
+        if (gamepad != null)
         {
-            OnActionInput();
+            if (gamepad.buttonSouth.wasPressedThisFrame)
+            {
+                goForward = 1;
+                OnActionInput();
+            }
+            else if (gamepad.buttonEast.wasPressedThisFrame) {
+                goForward = -1;
+                OnActionInput();
+
+            }
+
         }
-       
     }
 
     public void OnActionInput()
@@ -67,8 +77,8 @@ public class PlayerController : MonoBehaviour
         //Define behaviour an action input
         Debug.Log("Player " + playerID + " has done action " + (direction == DIRECTION.LEFT ? "left" : "right"));
         //this.transform.Translate(0.2f, 0f, 1f);
-        m_RigidBody.AddForce(transform.forward * m_thrust, ForceMode.Impulse);
-        m_RigidBody.AddTorque(transform.up * torque * turn);
+        m_RigidBody.AddForce(goForward*transform.forward * m_thrust, ForceMode.Impulse);
+        m_RigidBody.AddTorque(goForward * transform.up * torque * turn);
        
         
         
