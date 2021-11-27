@@ -7,6 +7,7 @@ public class TileAppear : MonoBehaviour
     public float speed = 5;
     public float minZPosition = -10;
     public float spawnZPosition = 40;
+    public GameObject endTile;
 
     public List<GameObject> tileList = new List<GameObject>();
     void Start()
@@ -27,6 +28,8 @@ public class TileAppear : MonoBehaviour
                 Instantiate(firstTile, new Vector3(0, 0, 10 + i * 10), firstTile.transform.rotation);
             }
         }
+        Instantiate(endTile, new Vector3(0, 0, 10 + 29 * 10), endTile.transform.rotation);
+
     }
 
     // Update is called once per frame
