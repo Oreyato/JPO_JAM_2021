@@ -7,24 +7,32 @@ public class TileAppear : MonoBehaviour
     public float speed = 5;
     public float minZPosition = -10;
     public float spawnZPosition = 40;
-    int count = 0;
 
     public List<GameObject> tileList = new List<GameObject>();
     void Start()
     {
+        GameObject firstTile = tileList[0];
+        Instantiate(firstTile, firstTile.transform.position, firstTile.transform.rotation);
 
+        for (int i = 0; i < 29; i++)
+        {
+            if (i % 2 == 0)
+            {
+                int random = Random.Range(0, 10);
+                GameObject tile = tileList[random];
+                Instantiate(tile, new Vector3(0, 0, 10 + i * 10), tile.transform.rotation);
+            }
+            else
+            {
+                Instantiate(firstTile, new Vector3(0, 0, 10 + i * 10), firstTile.transform.rotation);
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if(Time.timeSinceLevelLoad%(60*5) == 0)
-        {
-            int random = Random.Range(0, 10);
-            GameObject tile = tileList[random];
-            Instantiate(tile, new Vector3(0, 0,10 * count), tile.transform.rotation);
-            count++;
-        }
+        
     }
 }
