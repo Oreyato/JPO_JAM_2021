@@ -8,13 +8,20 @@ public class GameManager : MonoBehaviour
 {
     public GameObject ship;
     public float score;
+    public string scoreText;
+    
     private float timer;
+    private int minutes;
+    private int seconds;
+    private float decimals;
+    private bool gameStarted = true;
 
-    private bool gameStarted = false;
+    private float start;
 
     // Start is called before the first frame update
     void Start()
     {
+        start = Time.time;
         InputSystem.onDeviceChange +=
             (device, change) =>
             {
@@ -54,8 +61,11 @@ public class GameManager : MonoBehaviour
 
     void Score()
     {
-        score = (float)Math.Round(timer, 3);
+        decimals = (float)Math.Round((Time.time - start)%1, 2);
+        minutes = (int)decimals / 60;
 
-        Debug.Log(score);
+        //scoreText = minutes.ToString() + ":" + decimals;
+        int timeElapsed = (int)(Time.time - start);
+        scoreText = string.Format("{0}'{1:00}\"{2:00}", timeElapsed / 60 , timeElapsed % 60 ,(decimals)*100);
     }
 }

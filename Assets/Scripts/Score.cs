@@ -7,14 +7,14 @@ public class Score : MonoBehaviour
 {
     public GameManager gameManager;
 
+    private string text;
     private string scoreText;
-    private float scoreValue;
 
     // Start is called before the first frame update
     void Awake()
     {
-        scoreText = "Score: ";
-        
+        text = "Time: ";
+        scoreText = gameManager.GetComponent<GameManager>().scoreText;
         
         GetComponent<Text>().text = "ERROR";        
     }
@@ -22,6 +22,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        scoreText = gameManager.GetComponent<GameManager>().scoreText;
+        GetComponent<Text>().text = text + scoreText;
     }
 }
